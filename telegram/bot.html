@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Uso del Formulario</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Estilos básicos para el modal */
+        #myModal {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        #telegramBtn {
+            background-color: #0088cc;
+            color: white;
+        }
+        #telegramBtn:hover {
+            background-color: #005f7f;
+        }
+        #closeModal {
+            background-color: #f44336;
+            color: white;
+        }
+        #closeModal:hover {
+            background-color: #c62828;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Manual de Uso del Formulario de Información y Documentos</h1>
+        <h2>Instrucciones Generales.</h2>
+    </header>
+    
+    <main>
+        <section id="instrucciones">
+            <div class="instrucciones">
+                <section>
+                    <h2>Pasos para Usar el Formulario</h2>
+                    <ol>
+                        <li><strong>Leer Instrucciones Iniciales</strong> y hacer clic en check antes de
+                            <strong>"Continuar"</strong>.</li>
+                        <li><strong>Seleccionar Tipo de Solicitud:</strong> <strong>Primera Vez</strong> o
+                            <strong>Renovación</strong>.</li>
+                        <li><strong>Ingresar los datos de cada sección del formulario</strong> y hacer clic en
+                            <strong>"Siguiente"</strong>.</li>
+                        <li><strong>Después de haber verificado la información ingresada</strong>, hacer clic en
+                            <strong>"Enviar"</strong>.</li>
+                    </ol>
+                </section>
+                <div class="header">
+                    <section>
+                        <label for="check">¿Aceptas los términos?</label>
+                        <input type="checkbox" id="check" name="check" value="true">
+                        <br><br>
+                        <hr>
+                        <button id="btn-continuar">Continuar</button>
+                        <br><br>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div id="myModal">
+        <div class="modal-content">
+            <h2>Selecciona una opción</h2>
+            <button id="telegramBtn">
+                <i class="fab fa-telegram-plane"></i> Telegram
+            </button>
+            <button id="closeModal">Cerrar</button>
+        </div>
+    </div>
+
+    <footer>
+        <section class="social-media">
+            <h2>Síguenos en nuestras redes sociales</h2>
+            <p>&copy; 2024 Mi Página Web. Todos los derechos reservados.</p>
+        </section>
+    </footer>
+
+    <script>
+        document.getElementById("btn-continuar").onclick = function() {
+            if (document.getElementById("check").checked) {
+                document.getElementById("myModal").style.display = "block";
+            } else {
+                alert("Por favor, acepta los términos.");
+            }
+        };
+
+        document.getElementById("telegramBtn").onclick = function() {
+            const botUsername = "@FormularioClientesBot"; // Nombre de usuario de tu bot
+            const url = `https://t.me/${botUsername}`; // URL para abrir el chat con el bot
+            window.open(url, "_blank"); // Esto abrirá la conversación en una nueva pestaña
+        };
+
+        document.getElementById("closeModal").onclick = function() {
+            document.getElementById("myModal").style.display = "none";
+        };
+    </script>
+</body>
+</html>
